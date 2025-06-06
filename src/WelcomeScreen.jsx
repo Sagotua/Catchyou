@@ -22,12 +22,12 @@ export default function WelcomeScreen() {
 
   return (
     <div
-      className={`w-[360px] h-[800px] mx-auto rounded-2xl shadow-xl p-6 flex flex-col justify-between items-center transition-all duration-300 ${
-        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
-      }`}
-    >
+  className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${
+    theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+  }`}
+>
       {/* Logo */}
-      <div className="flex-grow flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center">
         <h1 className="text-4xl font-handwritten font-bold border-r-2 border-white overflow-hidden whitespace-nowrap w-0 animate-typing">
           CatchYou
           <span className="text-purple-500 animate-pulse">💜</span>

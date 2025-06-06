@@ -16,25 +16,33 @@ import LikesScreen from "./LikesScreen";
 function AppContent() {
   const location = useLocation();
   const hideNavOn = ["/", "/login", "/signup", "/forgot-password"];
-
   const shouldShowNav = !hideNavOn.includes(location.pathname);
 
   return (
-    <div className="relative min-h-screen bg-white text-black dark:bg-black dark:text-white">
-      <Routes>
-        <Route path="/" element={<WelcomeScreen />} />
-        <Route path="/signup" element={<SignUpScreen />} />
-        <Route path="/login" element={<LogInScreen />} />
-        <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
-        <Route path="/swipe" element={<SwipeScreen />} />
-        <Route path="/messages" element={<MessagesScreen />} />
-        <Route path="/profile" element={<UserProfileScreen />} />
-        <Route path="/edit-profile" element={<EditProfileScreen />} />
-        <Route path="/chat/:userId" element={<ChatConversationScreen />} />
-        <Route path="/likes" element={<LikesScreen />} />
-      </Routes>
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      {/* iPhone 15 Pro Max frame */}
+      <div className="w-[430px] h-[932px] rounded-[38px] border-[12px] border-zinc-800 shadow-2xl overflow-hidden relative">
+        {/* Dynamic Island */}
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[140px] h-[30px] rounded-full bg-zinc-900/80 z-10" />
 
-      {shouldShowNav && <BottomNavBar />}
+        {/* App Content */}
+        <div className="relative w-full h-full">
+          <Routes>
+            <Route path="/" element={<WelcomeScreen />} />
+            <Route path="/signup" element={<SignUpScreen />} />
+            <Route path="/login" element={<LogInScreen />} />
+            <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
+            <Route path="/swipe" element={<SwipeScreen />} />
+            <Route path="/messages" element={<MessagesScreen />} />
+            <Route path="/profile" element={<UserProfileScreen />} />
+            <Route path="/edit-profile" element={<EditProfileScreen />} />
+            <Route path="/chat/:userId" element={<ChatConversationScreen />} />
+            <Route path="/likes" element={<LikesScreen />} />
+          </Routes>
+
+          {shouldShowNav && <BottomNavBar />}
+        </div>
+      </div>
     </div>
   );
 }

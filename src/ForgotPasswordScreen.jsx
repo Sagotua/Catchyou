@@ -28,13 +28,13 @@ export default function ForgotPasswordScreen() {
 
   return (
     <div
-      className={`w-[360px] h-[800px] mx-auto rounded-2xl shadow-xl p-6 flex flex-col justify-between transition-all duration-300 ${
+      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${
         theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
       }`}
     >
-      <div>
+      <div className="w-full">
         <h2 className="text-2xl font-bold text-center mt-6">{t.title}</h2>
-        <p className="text-sm text-gray-400 text-center mt-1">{t.description}</p>
+        <p className="text-sm text-gray-400 dark:text-gray-500 text-center mt-1">{t.description}</p>
 
         <form className="w-full flex flex-col space-y-4 mt-12">
           <input
@@ -44,15 +44,15 @@ export default function ForgotPasswordScreen() {
               ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
           <button
-  type="submit"
-  className={`py-3 rounded-xl font-semibold transition
-    ${theme === "light"
-      ? "bg-pastelPurple text-textwarm hover:bg-purple-500"
-      : "bg-purple-600 text-textwarm hover:bg-purple-700"}`}
->
-  {t.submit}
-</button>
-
+            type="submit"
+            className={`py-3 rounded-xl font-semibold transition w-full ${
+              theme === "light"
+                ? "bg-pastelPurple text-textwarm hover:bg-purple-500"
+                : "bg-purple-600 text-textwarm hover:bg-purple-700"
+            }`}
+          >
+            {t.submit}
+          </button>
         </form>
 
         <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-4">
