@@ -39,7 +39,7 @@ export default function SignUpScreen() {
     >
       <h2 className="text-2xl font-bold text-center mt-4">{t.title}</h2>
 
-      <form className="w-full flex flex-col space-y-4 mt-6">
+      <form className="w-full flex flex-col space-y-4">
         <input
           type="email"
           placeholder={t.email}
