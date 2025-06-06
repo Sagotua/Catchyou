@@ -33,41 +33,39 @@ export default function LogInScreen() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${
-        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
-      }`}
+      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+        }`}
     >
-      <h2 className="text-2xl font-bold text-center mt-4">{t.title}</h2>
-
-      <form className="w-full flex flex-col space-y-4 mt-6">
-        <input
-          type="email"
-          placeholder={t.email}
-          className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
+      <div className="flex flex-col w-full">
+        <h2 className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</h2>
+        <form className="w-full flex flex-col space-y-4 mt-6">
+          <input
+            type="email"
+            placeholder={t.email}
+            className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
-        />
-        <input
-          type="password"
-          placeholder={t.password}
-          className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
+          />
+          <input
+            type="password"
+            placeholder={t.password}
+            className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
-        />
-        <button
-          type="submit"
-          className={`py-3 rounded-xl font-semibold transition w-full ${
-            theme === "light"
+          />
+          <button
+            type="submit"
+            className={`py-3 rounded-xl font-semibold transition w-full ${theme === "light"
               ? "bg-pastelPurple text-textwarm hover:bg-[#b89ef7]"
               : "bg-purple-600 text-textwarm hover:bg-purple-700"
-          }`}
-        >
-          {t.submit}
-        </button>
-      </form>
-
-      <div className="text-center pt-2">
-        <Link to="/forgot-password" className="text-sm text-purple-500 hover:underline">
-          {t.forgot}
-        </Link>
+              }`}
+          >
+            {t.submit}
+          </button>
+        </form>
+        <div className="text-center pt-2">
+          <Link to="/forgot-password" className="text-sm text-purple-500 hover:underline">
+            {t.forgot}
+          </Link>
+        </div>
       </div>
 
       <div className="text-center pt-6">

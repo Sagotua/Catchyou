@@ -37,9 +37,9 @@ export default function SignUpScreen() {
         theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
       }`}
     >
-      <h2 className="text-2xl font-bold text-center mt-4">{t.title}</h2>
-
-      <form className="w-full flex flex-col space-y-4">
+      <div className="flex flex-col w-full">
+      <h2 className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</h2>
+      <form className="w-full flex flex-col space-y-4 mt-6">
         <input
           type="email"
           placeholder={t.email}
@@ -69,7 +69,7 @@ export default function SignUpScreen() {
           {t.submit}
         </button>
       </form>
-
+          </div>
       {/* Блок соцмереж */}
       <div className="text-center pt-6">
         <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">{t.or}</p>
