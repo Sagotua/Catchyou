@@ -4,11 +4,13 @@
 
 /* Додаткові глобальні стилі за потребою */
 html {
-  @apply bg-warm text-black; /* світла тема за замовчуванням */
+  @apply bg-warm text-black;
+  /* світла тема за замовчуванням */
 }
 
 html.dark {
-  @apply bg-[#0f0f0f] text-white; /* темна тема */
+  @apply bg-[#0f0f0f] text-white;
+  /* темна тема */
 }
 
 body {

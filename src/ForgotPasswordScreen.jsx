@@ -28,9 +28,8 @@ export default function ForgotPasswordScreen() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${
-        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
-      }`}
+      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+        }`}
     >
       <div className="w-full">
         <h2 className="text-2xl font-bold text-center mt-4 mb-11">{t.title}</h2>
@@ -45,11 +44,10 @@ export default function ForgotPasswordScreen() {
           />
           <button
             type="submit"
-            className={`py-3 rounded-xl font-semibold transition w-full ${
-              theme === "light"
+            className={`py-3 rounded-xl font-semibold transition w-full ${theme === "light"
                 ? "bg-pastelPurple text-textwarm hover:bg-purple-500"
                 : "bg-purple-600 text-textwarm hover:bg-purple-700"
-            }`}
+              }`}
           >
             {t.submit}
           </button>

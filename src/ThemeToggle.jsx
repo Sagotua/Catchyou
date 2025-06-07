@@ -7,9 +7,8 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className={`text-lg p-1 rounded-full transition ${
-        theme === "light" ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-gray-300"
-      }`}
+      className={`text-lg p-1 rounded-full transition ${theme === "light" ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-gray-300"
+        }`}
       aria-label="Перемикач теми"
     >
       {theme === "light" ? <BsMoon size={20} /> : <BsSun size={20} />}
