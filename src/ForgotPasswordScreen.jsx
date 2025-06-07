@@ -10,7 +10,7 @@ export default function ForgotPasswordScreen() {
   const texts = {
     ua: {
       title: "Відновлення пароля",
-      description: "Введіть вашу електронну пошту і ми надішлемо інструкції",
+      description: "Введіть пошту для відновлення",
       email: "Електронна пошта",
       submit: "Відновити",
       back: "Назад до входу"
