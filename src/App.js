@@ -6,12 +6,12 @@ import SignUpScreen from "./SignUpScreen";
 import LogInScreen from "./LogInScreen";
 import ForgotPasswordScreen from "./ForgotPasswordScreen";
 import SwipeScreen from "./SwipeScreen";
-import MessagesScreen from "./MessagesScreen";
 import UserProfileScreen from "./UserProfileScreen";
 import EditProfileScreen from "./EditProfileScreen";
 import BottomNavBar from "./BottomNavBar";
 import ChatConversationScreen from "./ChatConversationScreen";
-import LikesScreen from "./LikesScreen";
+import MatchesScreen from "./MatchesScreen";
+
 
 function AppContent() {
   const location = useLocation();
@@ -33,11 +33,10 @@ function AppContent() {
           <Route path="/login" element={<LogInScreen />} />
           <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
           <Route path="/swipe" element={<SwipeScreen />} />
-          <Route path="/messages" element={<MessagesScreen />} />
+          <Route path="/matches" element={<MatchesScreen />} />
           <Route path="/profile" element={<UserProfileScreen />} />
           <Route path="/edit-profile" element={<EditProfileScreen />} />
           <Route path="/chat/:userId" element={<ChatConversationScreen />} />
-          <Route path="/likes" element={<LikesScreen />} />
         </Routes>
 
         {shouldShowNav && <BottomNavBar />}
