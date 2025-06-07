@@ -68,7 +68,7 @@ export default function LogInScreen() {
         </div>
       </div>
 
-      <div className="text-center pt-6">
+      <div className="text-center pt-6 mb-4">
         <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">{t.or}</p>
         <div className="flex justify-center gap-4">
           {[FaApple, FaGoogle, FaFacebookF, FaInstagram].map((Icon, i) => (
@@ -86,14 +86,13 @@ export default function LogInScreen() {
             </button>
           ))}
         </div>
+
+        <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-4">
+          <Link to="/signup" className="hover:underline">
+            {t.noAccount}
+          </Link>
+        </p>
       </div>
-
-      <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-4">
-        <Link to="/signup" className="hover:underline">
-          {t.noAccount}
-        </Link>
-      </p>
-
       <LanguageThemeSwitcher language={language} setLanguage={setLanguage} />
     </div>
   );

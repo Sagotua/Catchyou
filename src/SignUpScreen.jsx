@@ -33,45 +33,43 @@ export default function SignUpScreen() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${
-        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
-      }`}
+      className={`flex flex-col justify-between items-center w-full h-full px-6 py-8 transition-all duration-300 ${theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+        }`}
     >
       <div className="flex flex-col w-full">
-      <h2 className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</h2>
-      <form className="w-full flex flex-col space-y-4 mt-6">
-        <input
-          type="email"
-          placeholder={t.email}
-          className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
+        <h2 className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</h2>
+        <form className="w-full flex flex-col space-y-4 mt-6">
+          <input
+            type="email"
+            placeholder={t.email}
+            className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
-        />
-        <input
-          type="password"
-          placeholder={t.password}
-          className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
+          />
+          <input
+            type="password"
+            placeholder={t.password}
+            className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
-        />
-        <input
-          type="password"
-          placeholder={t.confirm}
-          className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
+          />
+          <input
+            type="password"
+            placeholder={t.confirm}
+            className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
-        />
-        <button
-          type="submit"
-          className={`py-3 rounded-xl font-semibold transition w-full ${
-            theme === "light"
+          />
+          <button
+            type="submit"
+            className={`py-3 rounded-xl font-semibold transition w-full ${theme === "light"
               ? "bg-pastelPurple text-textwarm hover:bg-[#b89ef7]"
               : "bg-purple-600 text-textwarm hover:bg-purple-700"
-          }`}
-        >
-          {t.submit}
-        </button>
-      </form>
-          </div>
+              }`}
+          >
+            {t.submit}
+          </button>
+        </form>
+      </div>
       {/* Блок соцмереж */}
-      <div className="text-center pt-6">
+      <div className="text-center pt-6 mb-12">
         <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">{t.or}</p>
         <div className="flex justify-center gap-4">
           {[FaApple, FaGoogle, FaFacebookF, FaInstagram].map((Icon, i) => (
@@ -84,22 +82,20 @@ export default function SignUpScreen() {
             >
               <Icon
                 size={20}
-                className={`${
-                  theme === "light" ? "text-[#3e2f1c]" : "text-textwarm"
-                }`}
+                className={`${theme === "light" ? "text-[#3e2f1c]" : "text-textwarm"
+                  }`}
               />
             </button>
           ))}
         </div>
+
+        {/* Текст + перемикач */}
+        <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-4">
+          <Link to="/login" className="hover:underline">
+            {t.haveAccount}
+          </Link>
+        </p>
       </div>
-
-      {/* Текст + перемикач */}
-      <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-4">
-        <Link to="/login" className="hover:underline">
-          {t.haveAccount}
-        </Link>
-      </p>
-
       <LanguageThemeSwitcher
         language={language}
         setLanguage={setLanguage}
