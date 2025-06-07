@@ -69,7 +69,7 @@ export default function SignUpScreen() {
         </form>
       </div>
       {/* Блок соцмереж */}
-      <div className="text-center pt-6 mb-12">
+      <div className="text-center pt-6 mb-8">
         <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">{t.or}</p>
         <div className="flex justify-center gap-4">
           {[FaApple, FaGoogle, FaFacebookF, FaInstagram].map((Icon, i) => (

@@ -61,7 +61,7 @@ export default function LogInScreen() {
             {t.submit}
           </button>
         </form>
-        <div className="text-center pt-2">
+        <div className="text-center pt-6">
           <Link to="/forgot-password" className="text-sm text-purple-500 hover:underline">
             {t.forgot}
           </Link>

@@ -55,7 +55,7 @@ export default function ForgotPasswordScreen() {
           </button>
         </form>
 
-        <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-4">
+        <p className="text-sm text-center text-gray-400 dark:text-gray-500 pt-7">
           <Link to="/login" className="hover:underline">{t.back}</Link>
         </p>
       </div>
