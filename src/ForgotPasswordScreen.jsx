@@ -33,7 +33,7 @@ export default function ForgotPasswordScreen() {
       }`}
     >
       <div className="w-full">
-        <h2 className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</h2>
+        <h2 className="text-2xl font-bold text-center mt-4 mb-11">{t.title}</h2>
         <p className="text-sm text-gray-400 dark:text-gray-500 text-center mt-1">{t.description}</p>
 
         <form className="w-full flex flex-col space-y-4 mt-12">

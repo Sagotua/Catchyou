@@ -19,11 +19,11 @@ function AppContent() {
   const shouldShowNav = !hideNavOn.includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="min-h-screen bg-black grid">
       {/* iPhone 15 Pro Max frame */}
-      <div className="w-[430px] h-[932px] rounded-[38px] border-[12px] border-zinc-800 shadow-2xl overflow-hidden relative">
+      {/* <div className="w-[430px] h-[932px] rounded-[38px] border-[12px] border-zinc-800 shadow-2xl overflow-hidden relative"> */}
         {/* Dynamic Island */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[140px] h-[30px] rounded-full bg-zinc-900/80 z-10" />
+        {/* <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[140px] h-[30px] rounded-full bg-zinc-900/80 z-10" /> */}
 
         {/* App Content */}
         <div className="relative w-full h-full">
@@ -42,7 +42,7 @@ function AppContent() {
 
           {shouldShowNav && <BottomNavBar />}
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }
