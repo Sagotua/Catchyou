@@ -40,7 +40,13 @@ export default function SwipeScreen() {
         <button className="border border-red-500 text-red-500 p-4 rounded-full hover:bg-red-500/10 transition">
           <FaTimes size={24} />
         </button>
-        <button className="border border-purple-500 text-purple-500 p-5 rounded-full hover:bg-purple-500/10 transition">
+        <button
+          className={`p-5 rounded-full transition border ${
+            theme === "light"
+              ? "border-pastelPurple text-pastelPurple hover:bg-pastelPurple/10"
+              : "border-purple-500 text-purple-500 hover:bg-purple-500/10"
+          }`}
+        >
           <FaHeart size={28} />
         </button>
         <button className="border border-yellow-600 text-yellow-600 p-4 rounded-full hover:bg-yellow-600/10 transition">

@@ -6,8 +6,13 @@ export default function BottomNavBar() {
   const { theme, toggleTheme } = useTheme();
 
   const navItemClass = ({ isActive }) =>
-    `flex flex-col items-center text-xs gap-1 transition duration-200 
-     ${isActive ? "text-purple-500 scale-110" : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"}`;
+    `flex flex-col items-center text-xs gap-1 transition duration-200 ${
+      isActive
+        ? theme === "light"
+          ? "text-pastelPurple scale-110"
+          : "text-purple-500 scale-110"
+        : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+    }`;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-warm dark:bg-zinc-900 border-t border-zinc-300 dark:border-zinc-800 h-16 flex justify-around items-center text-black dark:text-white z-50">

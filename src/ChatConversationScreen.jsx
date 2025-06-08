@@ -120,7 +120,11 @@ export default function ChatConversationScreen() {
         />
         <button
           onClick={handleSend}
-          className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+          className={`px-4 py-2 rounded-lg transition ${
+            theme === "light"
+              ? "bg-pastelPurple text-white hover:bg-purple-400"
+              : "bg-purple-600 hover:bg-purple-700"
+          }`}
         >
           Надіслати
         </button>

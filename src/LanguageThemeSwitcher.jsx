@@ -24,7 +24,9 @@ export default function LanguageThemeSwitcher() {
       <span className="mx-1">|</span>
       <button
         onClick={toggleTheme}
-        className="text-lg hover:text-purple-500 transition"
+        className={`text-lg transition ${
+          theme === "light" ? "hover:text-pastelPurple" : "hover:text-purple-500"
+        }`}
       >
         {theme === "light" ? <BsMoon /> : <BsSun />}
       </button>
