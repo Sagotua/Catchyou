@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaHome, FaComment, FaUser, FaMoon, FaSun } from "react-icons/fa";
+import { FaHome, FaComment, FaUser, FaMoon, FaSun, FaCog } from "react-icons/fa";
 import { useTheme } from "./ThemeContext";
 
 export default function BottomNavBar() {
@@ -27,6 +27,10 @@ export default function BottomNavBar() {
 
       <NavLink to="/profile" className={navItemClass} aria-label="Profile">
         <FaUser size={20} />
+      </NavLink>
+
+      <NavLink to="/settings" className={navItemClass} aria-label="Settings">
+        <FaCog size={20} />
       </NavLink>
 
       {/* Theme Toggle */}

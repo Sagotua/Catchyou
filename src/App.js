@@ -10,6 +10,9 @@ import EditProfileScreen from "./EditProfileScreen";
 import BottomNavBar from "./BottomNavBar";
 import ChatConversationScreen from "./ChatConversationScreen";
 import MatchesScreen from "./MatchesScreen";
+import SettingsScreen from "./SettingsScreen";
+import AboutAppScreen from "./AboutAppScreen";
+import HelpScreen from "./HelpScreen";
 
 
 function AppContent() {
@@ -36,6 +39,9 @@ function AppContent() {
           <Route path="/profile" element={<UserProfileScreen />} />
           <Route path="/edit-profile" element={<EditProfileScreen />} />
           <Route path="/chat/:userId" element={<ChatConversationScreen />} />
+          <Route path="/settings" element={<SettingsScreen />} />
+          <Route path="/about" element={<AboutAppScreen />} />
+          <Route path="/help" element={<HelpScreen />} />
         </Routes>
 
         {shouldShowNav && <BottomNavBar />}
