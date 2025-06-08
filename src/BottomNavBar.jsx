@@ -1,24 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaComment, FaUser, FaMoon, FaSun } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useTheme } from "./ThemeContext";
 
 export default function BottomNavBar() {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
-
-  const toggleTheme = () => {
-    const html = document.documentElement;
-    if (html.classList.contains("dark")) {
-      html.classList.remove("dark");
-      setIsDark(false);
-    } else {
-      html.classList.add("dark");
-      setIsDark(true);
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
 
   const navItemClass = ({ isActive }) =>
     `flex flex-col items-center text-xs gap-1 transition duration-200 
@@ -45,7 +30,7 @@ export default function BottomNavBar() {
         className="absolute top-1 left-2 text-sm opacity-60 hover:opacity-100 transition"
         aria-label="Toggle Theme"
       >
-        {isDark ? <FaSun size={16} /> : <FaMoon size={16} />}
+        {theme === "light" ? <FaMoon size={16} /> : <FaSun size={16} />}
       </button>
     </div>
   );
