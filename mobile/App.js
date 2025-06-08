@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Text } from 'react-native';
 import WelcomeScreen from './screens/WelcomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -65,6 +67,10 @@ function RootNavigator() {
   );
 }
 
+Text.defaultProps = Text.defaultProps || {};
+Text.defaultProps.allowFontScaling = true;
+Text.defaultProps.maxFontSizeMultiplier = 2;
+
 export default function App() {
   useEffect(() => {
     registerForPushNotificationsAsync().then((token) => {
@@ -75,14 +81,16 @@ export default function App() {
     requestPermissions();
   }, []);
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <AuthProvider>
-          <NavigationContainer>
-            <RootNavigator />
-          </NavigationContainer>
-        </AuthProvider>
-      </LanguageProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <LanguageProvider>
+          <AuthProvider>
+            <NavigationContainer>
+              <RootNavigator />
+            </NavigationContainer>
+          </AuthProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import SafeAreaWrapper from '../components/SafeAreaWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTheme } from '../context/ThemeContext';
 import { users } from '../mockData';
@@ -54,7 +55,7 @@ export default function MatchesScreen({ navigation }) {
   );
 
   return (
-    <View className={`flex-1 p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
+    <SafeAreaWrapper className={`p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
       <TextInput
         placeholder="Пошук..."
         value={searchTerm}
@@ -131,6 +132,6 @@ export default function MatchesScreen({ navigation }) {
           ))}
         </ScrollView>
       </View>
-    </View>
+    </SafeAreaWrapper>
   );
 }

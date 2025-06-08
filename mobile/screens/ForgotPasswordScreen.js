@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import SafeAreaWrapper from '../components/SafeAreaWrapper';
 import CustomButton from '../components/CustomButton';
 import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher';
 import { useTheme } from '../context/ThemeContext';
@@ -30,7 +31,7 @@ export default function ForgotPasswordScreen({ navigation }) {
   const t = texts[language];
 
   return (
-    <View className={`flex-1 items-center justify-center p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
+    <SafeAreaWrapper className={`items-center justify-center p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
       <Text className={`text-xl mb-2 ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.title}</Text>
       <Text className="text-sm text-gray-500 mb-4">{t.description}</Text>
       <TextInput
@@ -44,6 +45,6 @@ export default function ForgotPasswordScreen({ navigation }) {
         <Text className="text-sm text-gray-500 underline">{t.back}</Text>
       </TouchableOpacity>
       <LanguageThemeSwitcher labels={{ ua: { ua: texts.ua.ua, en: texts.ua.en, toggle: texts.ua.toggle }, en: { ua: texts.en.ua, en: texts.en.en, toggle: texts.en.toggle } }} />
-    </View>
+    </SafeAreaWrapper>
   );
 }

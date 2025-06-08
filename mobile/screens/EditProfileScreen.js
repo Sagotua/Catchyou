@@ -76,8 +76,8 @@ export default function EditProfileScreen({ navigation }) {
   };
 
   return (
-    <ScrollView className={`flex-1 p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>\
-      <Text className={`text-xl font-bold mb-4 ${theme === 'light' ? 'text-black' : 'text-white'}`}>Редагувати профіль</Text>
+    <SafeAreaWrapper className={`${theme === 'light' ? 'bg-white' : 'bg-black'}`}>\
+      <ScrollView className="flex-1 p-4">\
 
       <Text className={`mb-1 ${theme === 'light' ? 'text-black' : 'text-white'}`}>Фото (до 9)</Text>
       <View className="flex-row flex-wrap mb-4">
@@ -219,5 +219,5 @@ export default function EditProfileScreen({ navigation }) {
         <Text className="text-white text-center">Зберегти</Text>
       </TouchableOpacity>
     </ScrollView>
+    </SafeAreaWrapper>
   );
-}
