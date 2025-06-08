@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { ThemeProvider } from "./ThemeContext";
 
 import WelcomeScreen from "./WelcomeScreen";
 import SignUpScreen from "./SignUpScreen";
@@ -19,7 +18,7 @@ function AppContent() {
   const shouldShowNav = !hideNavOn.includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-black grid">
+    <div className="min-h-screen bg-warm text-black dark:bg-black dark:text-white grid">
       {/* iPhone 15 Pro Max frame */}
       {/* <div className="w-[430px] h-[932px] rounded-[38px] border-[12px] border-zinc-800 shadow-2xl overflow-hidden relative"> */}
       {/* Dynamic Island */}
@@ -48,11 +47,9 @@ function AppContent() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 

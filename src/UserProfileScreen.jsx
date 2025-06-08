@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 
 export default function UserProfileScreen() {
   const { theme } = useTheme();
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     const storedProfile = localStorage.getItem("userProfile");
     if (storedProfile) {
       setProfile(JSON.parse(storedProfile));
+    } else {
+      navigate("/edit-profile", { replace: true });
     }
-  }, []);
+  }, [navigate]);
 
   if (!profile) {
     return (
@@ -63,6 +66,9 @@ export default function UserProfileScreen() {
         {profile.orientation && <p>Орієнтація: {profile.orientation}</p>}
         {profile.height && !profile.hideAge && (
           <p>Зріст: {profile.height} см</p>
+        )}
+        {profile.maxDistance && !profile.hideDistance && (
+          <p>Радіус пошуку: {profile.maxDistance} км</p>
         )}
       </div>
 

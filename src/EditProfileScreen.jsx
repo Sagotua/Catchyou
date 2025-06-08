@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
 
 export default function EditProfileScreen() {
   const navigate = useNavigate();
+  const { theme } = useTheme();
   const popularInterests = [
     "Подорожі", "Музика", "Фільми", "Спорт", "Йога",
     "Танці", "Кавові побачення", "Відеоігри", "Меми",
@@ -61,7 +63,8 @@ export default function EditProfileScreen() {
     gender: "",
     orientation: "",
     hideAge: false,
-    hideDistance: false
+    hideDistance: false,
+    maxDistance: 30
   };
 
   const [profile, setProfile] = useState(defaultProfile);
@@ -126,7 +129,11 @@ export default function EditProfileScreen() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-black text-white min-h-screen">
+    <div
+      className={`w-full max-w-md mx-auto min-h-screen transition-all duration-300 ${
+        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+      }`}
+    >
       <div className="p-6 space-y-4 overflow-y-auto pb-24">
         <h2 className="text-xl font-bold text-center">Редагування профілю</h2>
 
@@ -223,7 +230,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => toggleInterest(interest)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -252,7 +261,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "zodiac", sign)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.zodiac === sign
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -274,7 +285,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "familyPlans", option)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.familyPlans === option
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -294,7 +307,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "personalityType", type)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.personalityType === type
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -314,7 +329,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "communicationStyle", style)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.communicationStyle === style
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -403,7 +420,9 @@ export default function EditProfileScreen() {
                         handleNestedChange("lifestyle", key, option)
                       }
                       className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                        ? "bg-purple-600 border-purple-600 text-white"
+                        ? theme === "light"
+                          ? "bg-pastelPurple border-pastelPurple text-white"
+                          : "bg-purple-600 border-purple-600 text-white"
                         : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                         }`}
                     >
@@ -486,7 +505,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleChange({ target: { name: "relationshipGoal", value: option } })}
                   className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -548,7 +569,9 @@ export default function EditProfileScreen() {
                     });
                   }}
                   className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -619,6 +642,24 @@ export default function EditProfileScreen() {
               />
               <span className="text-sm">Не показувати відстань до мене</span>
             </label>
+
+            <div className="w-full mt-4">
+              <label className="block mb-1 text-sm">
+                Максимальна дистанція (км)
+              </label>
+              <input
+                type="range"
+                name="maxDistance"
+                min="1"
+                max="100"
+                value={profile.maxDistance}
+                onChange={handleChange}
+                className={`w-full ${theme === "light" ? "accent-pastelPurple" : "accent-purple-600"}`}
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                {profile.maxDistance} км
+              </p>
+            </div>
           </div>
         </div>
 
@@ -627,7 +668,11 @@ export default function EditProfileScreen() {
         {/* Кнопка */}
         <button
           onClick={handleSave}
-          className="w-full bg-purple-600 py-3 rounded-xl font-semibold hover:bg-purple-700 transition mt-6"
+          className={`w-full py-3 rounded-xl font-semibold transition mt-6 ${
+            theme === "light"
+              ? "bg-pastelPurple text-white hover:bg-purple-400"
+              : "bg-purple-600 hover:bg-purple-700"
+          }`}
         >
           Зберегти
         </button>
@@ -672,6 +717,9 @@ export default function EditProfileScreen() {
               {profile.location && <p>Місто: {profile.location}</p>}
               {profile.relationshipGoal && <p>Ціль стосунків: {profile.relationshipGoal}</p>}
               {!profile.hideAge && profile.height && <p>Зріст: {profile.height} см</p>}
+              {!profile.hideDistance && profile.maxDistance && (
+                <p>Радіус пошуку: {profile.maxDistance} км</p>
+              )}
             </div>
 
             {profile.media.length > 0 && (

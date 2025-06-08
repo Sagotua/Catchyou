@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 import LanguageThemeSwitcher from "./LanguageThemeSwitcher";
+import { useLanguage } from "./LanguageContext";
 import { FaApple, FaGoogle, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function SignUpScreen() {
-  const [language, setLanguage] = useState("ua");
+  const { language } = useLanguage();
   const { theme } = useTheme();
 
   const texts = {
@@ -13,7 +13,7 @@ export default function SignUpScreen() {
       title: "Реєстрація",
       email: "Електронна пошта",
       password: "Пароль",
-      confirm: "Підтвердьте пароль",
+      confirm: "Підтвердіть пароль",
       submit: "Зареєструватися",
       haveAccount: "Вже маєте акаунт? Увійти",
       or: "Або зареєструватися через"
@@ -42,25 +42,28 @@ export default function SignUpScreen() {
           <input
             type="email"
             placeholder={t.email}
+            aria-label={t.email}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
           <input
             type="password"
             placeholder={t.password}
+            aria-label={t.password}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
           <input
             type="password"
             placeholder={t.confirm}
+            aria-label={t.confirm}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
           <button
             type="submit"
             className={`py-3 rounded-xl font-semibold transition w-full ${theme === "light"
-              ? "bg-pastelPurple text-textwarm hover:bg-[#b89ef7]"
+              ? "bg-pastelPurple text-white hover:bg-purple-400"
               : "bg-purple-600 text-textwarm hover:bg-purple-700"
               }`}
           >
@@ -96,10 +99,7 @@ export default function SignUpScreen() {
           </Link>
         </p>
       </div>
-      <LanguageThemeSwitcher
-        language={language}
-        setLanguage={setLanguage}
-      />
+      <LanguageThemeSwitcher />
     </div>
   );
 }

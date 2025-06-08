@@ -1,8 +1,10 @@
 import { BsSun, BsMoon } from "react-icons/bs";
 import { useTheme } from "./ThemeContext";
+import { useLanguage } from "./LanguageContext";
 
-export default function LanguageThemeSwitcher({ language, setLanguage }) {
+export default function LanguageThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage } = useLanguage();
 
   return (
     <div className="flex justify-center items-center gap-4 text-sm opacity-80 pt-4 pb-2">
@@ -22,7 +24,9 @@ export default function LanguageThemeSwitcher({ language, setLanguage }) {
       <span className="mx-1">|</span>
       <button
         onClick={toggleTheme}
-        className="text-lg hover:text-purple-500 transition"
+        className={`text-lg transition ${
+          theme === "light" ? "hover:text-pastelPurple" : "hover:text-purple-500"
+        }`}
       >
         {theme === "light" ? <BsMoon /> : <BsSun />}
       </button>
