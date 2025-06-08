@@ -4,10 +4,12 @@ import CustomButton from '../components/CustomButton';
 import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function RegisterScreen({ navigation }) {
   const { theme } = useTheme();
   const { language } = useLanguage();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -40,7 +42,7 @@ export default function RegisterScreen({ navigation }) {
       return;
     }
     setError('');
-    navigation.replace('Home');
+    login('demo-token');
   };
 
   return (
