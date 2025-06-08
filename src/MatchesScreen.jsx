@@ -48,10 +48,13 @@ export default function MatchesScreen() {
       }`}
     >
       {/* Пошук */}
+      <label htmlFor="match-search" className="sr-only">
+        Search
+      </label>
       <input
+        id="match-search"
         type="text"
         placeholder="Пошук..."
-        aria-label="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className={`w-full px-4 py-2 rounded-xl placeholder-gray-400 focus:outline-none transition ${
