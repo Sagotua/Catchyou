@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
 
 export default function EditProfileScreen() {
   const navigate = useNavigate();
+  const { theme } = useTheme();
   const popularInterests = [
     "Подорожі", "Музика", "Фільми", "Спорт", "Йога",
     "Танці", "Кавові побачення", "Відеоігри", "Меми",
@@ -127,7 +129,11 @@ export default function EditProfileScreen() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-black text-white min-h-screen">
+    <div
+      className={`w-full max-w-md mx-auto min-h-screen transition-all duration-300 ${
+        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+      }`}
+    >
       <div className="p-6 space-y-4 overflow-y-auto pb-24">
         <h2 className="text-xl font-bold text-center">Редагування профілю</h2>
 
