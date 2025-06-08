@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import CustomButton from '../components/CustomButton';
+import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
 export default function WelcomeScreen({ navigation }) {
-  const { language, setLanguage } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
+  const { language } = useLanguage();
+  const { theme } = useTheme();
 
   const texts = {
     ua: {
@@ -28,17 +29,7 @@ export default function WelcomeScreen({ navigation }) {
   return (
     <View className={`flex-1 items-center justify-center ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
       <Text className={`mb-4 text-lg ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.welcome}</Text>
-      <View className="flex-row space-x-4">
-        <TouchableOpacity onPress={() => setLanguage('ua')}>
-          <Text className={`underline ${language === 'ua' ? 'font-bold' : ''}`}>{t.ua}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setLanguage('en')}>
-          <Text className={`underline ${language === 'en' ? 'font-bold' : ''}`}>{t.en}</Text>
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity onPress={toggleTheme} className="mt-4">
-        <Text className="text-blue-500">{t.toggle}</Text>
-      </TouchableOpacity>
+      <LanguageThemeSwitcher labels={{ ua: { ua: texts.ua.ua, en: texts.ua.en, toggle: texts.ua.toggle }, en: { ua: texts.en.ua, en: texts.en.en, toggle: texts.en.toggle } }} />
       <View className="mt-6">
         <CustomButton title="Get Started" onPress={() => navigation.navigate('Login')} />
       </View>
