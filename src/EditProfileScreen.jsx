@@ -230,7 +230,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => toggleInterest(interest)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -259,7 +261,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "zodiac", sign)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.zodiac === sign
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -281,7 +285,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "familyPlans", option)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.familyPlans === option
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -301,7 +307,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "personalityType", type)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.personalityType === type
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -321,7 +329,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleNestedChange("moreAboutMe", "communicationStyle", style)}
                   className={`px-4 py-2 rounded-full text-sm border transition ${profile.moreAboutMe.communicationStyle === style
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -410,7 +420,9 @@ export default function EditProfileScreen() {
                         handleNestedChange("lifestyle", key, option)
                       }
                       className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                        ? "bg-purple-600 border-purple-600 text-white"
+                        ? theme === "light"
+                          ? "bg-pastelPurple border-pastelPurple text-white"
+                          : "bg-purple-600 border-purple-600 text-white"
                         : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                         }`}
                     >
@@ -493,7 +505,9 @@ export default function EditProfileScreen() {
                   type="button"
                   onClick={() => handleChange({ target: { name: "relationshipGoal", value: option } })}
                   className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -555,7 +569,9 @@ export default function EditProfileScreen() {
                     });
                   }}
                   className={`px-4 py-2 rounded-full text-sm border transition ${selected
-                    ? "bg-purple-600 border-purple-600 text-white"
+                    ? theme === "light"
+                      ? "bg-pastelPurple border-pastelPurple text-white"
+                      : "bg-purple-600 border-purple-600 text-white"
                     : "bg-zinc-800 border-zinc-700 text-gray-400 hover:bg-zinc-700"
                     }`}
                 >
@@ -638,7 +654,7 @@ export default function EditProfileScreen() {
                 max="100"
                 value={profile.maxDistance}
                 onChange={handleChange}
-                className="w-full accent-purple-600"
+                className={`w-full ${theme === "light" ? "accent-pastelPurple" : "accent-purple-600"}`}
               />
               <p className="text-xs text-gray-400 mt-1">
                 {profile.maxDistance} км
@@ -652,7 +668,11 @@ export default function EditProfileScreen() {
         {/* Кнопка */}
         <button
           onClick={handleSave}
-          className="w-full bg-purple-600 py-3 rounded-xl font-semibold hover:bg-purple-700 transition mt-6"
+          className={`w-full py-3 rounded-xl font-semibold transition mt-6 ${
+            theme === "light"
+              ? "bg-pastelPurple text-white hover:bg-purple-400"
+              : "bg-purple-600 hover:bg-purple-700"
+          }`}
         >
           Зберегти
         </button>
