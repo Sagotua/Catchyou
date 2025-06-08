@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 import LanguageThemeSwitcher from "./LanguageThemeSwitcher";
+import { useLanguage } from "./LanguageContext";
 import { FaApple, FaGoogle, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function SignUpScreen() {
-  const [language, setLanguage] = useState("ua");
+  const { language } = useLanguage();
   const { theme } = useTheme();
 
   const texts = {
@@ -96,10 +96,7 @@ export default function SignUpScreen() {
           </Link>
         </p>
       </div>
-      <LanguageThemeSwitcher
-        language={language}
-        setLanguage={setLanguage}
-      />
+      <LanguageThemeSwitcher />
     </div>
   );
 }

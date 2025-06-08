@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 import LanguageThemeSwitcher from "./LanguageThemeSwitcher";
+import { useLanguage } from "./LanguageContext";
 
 export default function ForgotPasswordScreen() {
-  const [language, setLanguage] = useState("ua");
+  const { language } = useLanguage();
   const { theme } = useTheme();
 
   const texts = {
@@ -58,7 +58,7 @@ export default function ForgotPasswordScreen() {
         </p>
       </div>
 
-      <LanguageThemeSwitcher language={language} setLanguage={setLanguage} />
+      <LanguageThemeSwitcher />
     </div>
   );
 }
