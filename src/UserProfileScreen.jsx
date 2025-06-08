@@ -15,7 +15,16 @@ export default function UserProfileScreen() {
 
   if (!profile) {
     return (
-      <div className="text-center p-6 text-white">Завантаження профілю...</div>
+      <div
+        className={`w-full max-w-md mx-auto p-6 text-center space-y-4 transition-colors duration-300 ${
+          theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+        }`}
+      >
+        <p>Профіль не заповнений.</p>
+        <Link to="/edit-profile" className="text-purple-500 underline">
+          Створити профіль
+        </Link>
+      </div>
     );
   }
 

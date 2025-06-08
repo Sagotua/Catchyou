@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
 
 export default function MatchesScreen() {
   const [searchTerm, setSearchTerm] = useState("");
+  const { theme } = useTheme();
 
   const newMatches = [
     {
@@ -44,14 +46,20 @@ export default function MatchesScreen() {
   );
 
   return (
-    <div className="w-[360px] h-[800px] mx-auto p-4 bg-black text-white rounded-2xl shadow-xl flex flex-col space-y-4">
+    <div
+      className={`w-[360px] h-[800px] mx-auto p-4 rounded-2xl shadow-xl flex flex-col space-y-4 transition-colors duration-300 ${
+        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+      }`}
+    >
       {/* Пошук */}
       <input
         type="text"
         placeholder="Пошук..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full px-4 py-2 rounded-xl bg-zinc-800 placeholder-gray-400 text-white focus:outline-none"
+        className={`w-full px-4 py-2 rounded-xl placeholder-gray-400 focus:outline-none ${
+          theme === "light" ? "bg-white text-black" : "bg-zinc-800 text-white"
+        }`}
       />
 
       {/* Нові пари */}
@@ -61,7 +69,9 @@ export default function MatchesScreen() {
           {newMatches.map(match => (
             <div
               key={match.id}
-              className="min-w-[120px] flex-shrink-0 rounded-xl overflow-hidden bg-zinc-800"
+              className={`min-w-[120px] flex-shrink-0 rounded-xl overflow-hidden ${
+                theme === "light" ? "bg-zinc-200" : "bg-zinc-800"
+              }`}
             >
               <img src={match.photo} alt={match.name} className="w-full h-48 object-cover" />
               <p className="text-center py-2">{match.name}</p>
@@ -76,7 +86,11 @@ export default function MatchesScreen() {
         <div className="space-y-3">
           {filteredMessages.map(msg => (
             <Link to={`/chat/${msg.id}`} key={msg.id} className="block">
-              <div className="flex items-center gap-3 hover:bg-zinc-900 p-2 rounded-lg transition">
+              <div
+                className={`flex items-center gap-3 p-2 rounded-lg transition hover:bg-opacity-70 ${
+                  theme === "light" ? "hover:bg-zinc-200" : "hover:bg-zinc-900"
+                }`}
+              >
                 <img src={msg.avatar} alt={msg.name} className="w-10 h-10 rounded-full" />
                 <div className="flex-1">
                   <div className="flex justify-between items-center">

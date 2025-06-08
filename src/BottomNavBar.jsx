@@ -1,24 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaComment, FaUser, FaMoon, FaSun } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useTheme } from "./ThemeContext";
 
 export default function BottomNavBar() {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
-
-  const toggleTheme = () => {
-    const html = document.documentElement;
-    if (html.classList.contains("dark")) {
-      html.classList.remove("dark");
-      setIsDark(false);
-    } else {
-      html.classList.add("dark");
-      setIsDark(true);
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
 
   const navItemClass = ({ isActive }) =>
     `flex flex-col items-center text-xs gap-1 transition duration-200 

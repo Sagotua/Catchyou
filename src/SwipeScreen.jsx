@@ -21,7 +21,11 @@ export default function SwipeScreen() {
   ];
 
   return (
-    <div className="w-[360px] h-[800px] bg-white text-black dark:bg-black dark:text-white mx-auto flex flex-col justify-between p-4 rounded-2xl shadow-xl">
+    <div
+      className={`w-[360px] h-[800px] mx-auto flex flex-col justify-between p-4 rounded-2xl shadow-xl transition-colors duration-300 ${
+        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+      }`}
+    >
       {/* Profile card */}
       <div className="flex-1 flex flex-col items-center justify-center space-y-4">
         <img

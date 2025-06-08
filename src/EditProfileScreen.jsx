@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "./ThemeContext";
 
 export default function EditProfileScreen() {
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  const inputClass = `w-full px-4 py-3 rounded-xl placeholder-gray-400 ${
+    theme === "light" ? "bg-white text-black" : "bg-zinc-800 text-white"
+  }`;
   const popularInterests = [
     "Подорожі", "Музика", "Фільми", "Спорт", "Йога",
     "Танці", "Кавові побачення", "Відеоігри", "Меми",
@@ -126,7 +131,11 @@ export default function EditProfileScreen() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-black text-white min-h-screen">
+    <div
+      className={`w-full max-w-md mx-auto min-h-screen transition-colors duration-300 ${
+        theme === "light" ? "bg-warm text-black" : "bg-darkbg text-textwarm"
+      }`}
+    >
       <div className="p-6 space-y-4 overflow-y-auto pb-24">
         <h2 className="text-xl font-bold text-center">Редагування профілю</h2>
 
@@ -143,7 +152,9 @@ export default function EditProfileScreen() {
                 />
                 <button
                   onClick={() => handlePhotoRemove(idx)}
-                  className="absolute top-1 right-1 bg-black bg-opacity-50 text-white text-xs px-2 rounded-full"
+                  className={`absolute top-1 right-1 text-xs px-2 rounded-full ${
+                    theme === "light" ? "bg-white/70 text-black" : "bg-black/50 text-white"
+                  }`}
                 >
                   ×
                 </button>
@@ -152,7 +163,9 @@ export default function EditProfileScreen() {
             {profile.media.length < 9 && (
               <button
                 onClick={handlePhotoAdd}
-                className="w-full h-24 bg-zinc-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-zinc-700"
+                className={`w-full h-24 rounded-lg flex items-center justify-center transition ${
+                  theme === "light" ? "bg-zinc-200 hover:bg-zinc-300" : "bg-zinc-800 text-gray-400 hover:bg-zinc-700"
+                }`}
               >
                 + Додати фото
               </button>
@@ -168,7 +181,7 @@ export default function EditProfileScreen() {
             name="name"
             value={profile.name}
             onChange={handleChange}
-            className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+            className={inputClass}
             placeholder="Ваше ім’я"
           />
         </div>
@@ -181,7 +194,7 @@ export default function EditProfileScreen() {
             name="age"
             value={profile.age}
             onChange={handleChange}
-            className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+            className={inputClass}
             placeholder="Ваш вік"
           />
         </div>
@@ -194,7 +207,7 @@ export default function EditProfileScreen() {
             value={profile.bio}
             onChange={handleChange}
             maxLength={500}
-            className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400 resize-none h-24"
+            className={`${inputClass} resize-none h-24`}
             placeholder="Опишіть себе..."
           />
         </div>
@@ -207,7 +220,7 @@ export default function EditProfileScreen() {
             name="photo"
             value={profile.photo}
             onChange={handleChange}
-            className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+            className={inputClass}
             placeholder="https://..."
           />
         </div>
@@ -331,7 +344,7 @@ export default function EditProfileScreen() {
               type="text"
               value={profile.moreAboutMe.education}
               onChange={(e) => handleNestedChange("moreAboutMe", "education", e.target.value)}
-              className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+              className={inputClass}
               placeholder="Ваша освіта"
             />
           </div>
@@ -343,7 +356,7 @@ export default function EditProfileScreen() {
               type="text"
               value={profile.moreAboutMe.loveStyle}
               onChange={(e) => handleNestedChange("moreAboutMe", "loveStyle", e.target.value)}
-              className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+              className={inputClass}
               placeholder="Ваш стиль кохання"
             />
           </div>
@@ -425,7 +438,7 @@ export default function EditProfileScreen() {
               name="jobTitle"
               value={profile.jobTitle}
               onChange={handleChange}
-              className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+              className={inputClass}
               placeholder="Наприклад: Дизайнер"
             />
           </div>
@@ -437,7 +450,7 @@ export default function EditProfileScreen() {
               name="company"
               value={profile.company}
               onChange={handleChange}
-              className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+              className={inputClass}
               placeholder="Де працюєте?"
             />
           </div>
@@ -449,7 +462,7 @@ export default function EditProfileScreen() {
               name="school"
               value={profile.school}
               onChange={handleChange}
-              className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+              className={inputClass}
               placeholder="Наприклад: ЛНУ ім. Франка"
             />
           </div>
@@ -461,7 +474,7 @@ export default function EditProfileScreen() {
               name="location"
               value={profile.location}
               onChange={handleChange}
-              className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+              className={inputClass}
               placeholder="Місто, село..."
             />
           </div>
@@ -505,7 +518,7 @@ export default function EditProfileScreen() {
             name="height"
             value={profile.height}
             onChange={handleChange}
-            className="w-full bg-zinc-800 px-4 py-3 rounded-xl placeholder-gray-400"
+            className={inputClass}
             placeholder="Наприклад, 180"
           />
         </div>
@@ -568,7 +581,7 @@ export default function EditProfileScreen() {
               name="gender"
               value={profile.gender}
               onChange={handleChange}
-              className="w-full bg-zinc-800 text-white px-4 py-3 rounded-xl"
+              className={inputClass}
             >
               <option value="">Оберіть стать</option>
               <option value="Чоловік">Чоловік</option>
@@ -584,7 +597,7 @@ export default function EditProfileScreen() {
               name="orientation"
               value={profile.orientation}
               onChange={handleChange}
-              className="w-full bg-zinc-800 text-white px-4 py-3 rounded-xl"
+              className={inputClass}
             >
               <option value="">Оберіть орієнтацію</option>
               <option value="Гетеросексуальна">Гетеросексуальна</option>
