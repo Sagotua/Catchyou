@@ -623,6 +623,7 @@ export default function EditProfileScreen() {
         </div>
 
 
+
         {/* Кнопка */}
         <button
           onClick={handleSave}
@@ -630,6 +631,67 @@ export default function EditProfileScreen() {
         >
           Зберегти
         </button>
+        {/* Попередній перегляд профілю */}
+        <div className="mt-10 p-4 border border-zinc-700 rounded-xl">
+          <h3 className="text-lg font-semibold mb-4 text-center">Попередній перегляд</h3>
+
+          {profile.photo && (
+            <img
+              src={profile.photo}
+              alt="Головне фото"
+              className="w-full h-64 object-cover rounded-xl mb-4"
+            />
+          )}
+
+          <div className="space-y-1">
+            <p className="text-xl font-bold">
+              {profile.name}{" "}
+              {!profile.hideAge && profile.age && (
+                <span className="text-gray-400">({profile.age})</span>
+              )}
+            </p>
+
+            {profile.bio && <p className="text-sm text-gray-400">{profile.bio}</p>}
+
+            {profile.interests.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-2">
+                {profile.interests.map((i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 bg-zinc-800 rounded-full text-xs text-gray-300"
+                  >
+                    {i}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div className="text-sm text-gray-500 mt-4 space-y-1">
+              {profile.gender && <p>Стать: {profile.gender}</p>}
+              {profile.orientation && <p>Орієнтація: {profile.orientation}</p>}
+              {profile.location && <p>Місто: {profile.location}</p>}
+              {profile.relationshipGoal && <p>Ціль стосунків: {profile.relationshipGoal}</p>}
+              {!profile.hideAge && profile.height && <p>Зріст: {profile.height} см</p>}
+            </div>
+
+            {profile.media.length > 0 && (
+              <div className="mt-4">
+                <h4 className="text-sm mb-2 text-gray-400">Додаткові фото</h4>
+                <div className="grid grid-cols-3 gap-2">
+                  {profile.media.map((url, idx) => (
+                    <img
+                      key={idx}
+                      src={url}
+                      alt={`media-${idx}`}
+                      className="w-full h-20 object-cover rounded-lg"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
       </div>
     </div>
   );
