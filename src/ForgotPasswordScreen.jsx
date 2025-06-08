@@ -45,7 +45,7 @@ export default function ForgotPasswordScreen() {
           <button
             type="submit"
             className={`py-3 rounded-xl font-semibold transition w-full ${theme === "light"
-                ? "bg-pastelPurple text-textwarm hover:bg-purple-500"
+                ? "bg-pastelPurple text-white hover:bg-purple-400"
                 : "bg-purple-600 text-textwarm hover:bg-purple-700"
               }`}
           >
