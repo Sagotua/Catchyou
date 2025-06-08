@@ -13,6 +13,7 @@ import SettingsScreen from './screens/SettingsScreen';
 import EditProfileScreen from './screens/EditProfileScreen';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -31,25 +32,46 @@ function HomeTabs() {
   );
 }
 
+function RootNavigator() {
+  const { userToken, loading } = useAuth();
+
+  if (loading) {
+    return null;
+  }
+
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        gestureEnabled: true,
+      }}
+    >
+      {userToken ? (
+        <>
+          <Stack.Screen name="Home" component={HomeTabs} />
+          <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+        </>
+      ) : (
+        <>
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+        </>
+      )}
+    </Stack.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-              gestureEnabled: true,
-            }}
-          >
-            <Stack.Screen name="Welcome" component={WelcomeScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
-            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-            <Stack.Screen name="Home" component={HomeTabs} />
-            <Stack.Screen name="EditProfile" component={EditProfileScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <AuthProvider>
+          <NavigationContainer>
+            <RootNavigator />
+          </NavigationContainer>
+        </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

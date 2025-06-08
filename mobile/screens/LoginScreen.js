@@ -5,10 +5,12 @@ import CustomButton from '../components/CustomButton';
 import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function LoginScreen({ navigation }) {
   const { theme } = useTheme();
   const { language } = useLanguage();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -42,7 +44,7 @@ export default function LoginScreen({ navigation }) {
       return;
     }
     setError('');
-    navigation.replace('Home');
+    login('demo-token');
   };
 
   return (
