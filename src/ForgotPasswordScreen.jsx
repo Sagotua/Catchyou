@@ -39,6 +39,7 @@ export default function ForgotPasswordScreen() {
           <input
             type="email"
             placeholder={t.email}
+            aria-label={t.email}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
               ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />

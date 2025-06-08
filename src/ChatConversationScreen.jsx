@@ -114,6 +114,7 @@ export default function ChatConversationScreen() {
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Напишіть повідомлення..."
+          aria-label="Message"
           className={`flex-1 px-4 py-2 rounded-lg focus:outline-none transition ${
             theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-white"
           }`}

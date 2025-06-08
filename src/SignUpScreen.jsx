@@ -42,18 +42,21 @@ export default function SignUpScreen() {
           <input
             type="email"
             placeholder={t.email}
+            aria-label={t.email}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
           <input
             type="password"
             placeholder={t.password}
+            aria-label={t.password}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
           <input
             type="password"
             placeholder={t.confirm}
+            aria-label={t.confirm}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />

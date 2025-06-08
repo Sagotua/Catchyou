@@ -17,15 +17,15 @@ export default function BottomNavBar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-warm dark:bg-zinc-900 border-t border-zinc-300 dark:border-zinc-800 h-16 flex justify-around items-center text-black dark:text-white z-50">
 
-      <NavLink to="/swipe" className={navItemClass}>
+      <NavLink to="/swipe" className={navItemClass} aria-label="Swipe">
         <FaHome size={20} />
       </NavLink>
 
-      <NavLink to="/matches" className={navItemClass}>
+      <NavLink to="/matches" className={navItemClass} aria-label="Matches">
         <FaComment size={20} />
       </NavLink>
 
-      <NavLink to="/profile" className={navItemClass}>
+      <NavLink to="/profile" className={navItemClass} aria-label="Profile">
         <FaUser size={20} />
       </NavLink>
 
