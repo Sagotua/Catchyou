@@ -13,7 +13,7 @@ export default function SignUpScreen() {
       title: "Реєстрація",
       email: "Електронна пошта",
       password: "Пароль",
-      confirm: "Підтвердьте пароль",
+      confirm: "Підтвердіть пароль",
       submit: "Зареєструватися",
       haveAccount: "Вже маєте акаунт? Увійти",
       or: "Або зареєструватися через"
