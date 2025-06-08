@@ -39,24 +39,33 @@ export default function SignUpScreen() {
       <div className="flex flex-col w-full">
         <h2 className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</h2>
         <form className="w-full flex flex-col space-y-4 mt-6">
+          <label htmlFor="signup-email" className="sr-only">
+            {t.email}
+          </label>
           <input
+            id="signup-email"
             type="email"
             placeholder={t.email}
-            aria-label={t.email}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
+          <label htmlFor="signup-password" className="sr-only">
+            {t.password}
+          </label>
           <input
+            id="signup-password"
             type="password"
             placeholder={t.password}
-            aria-label={t.password}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />
+          <label htmlFor="signup-confirm" className="sr-only">
+            {t.confirm}
+          </label>
           <input
+            id="signup-confirm"
             type="password"
             placeholder={t.confirm}
-            aria-label={t.confirm}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
             ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />

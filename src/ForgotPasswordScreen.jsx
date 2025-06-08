@@ -36,10 +36,13 @@ export default function ForgotPasswordScreen() {
         <p className="text-sm text-gray-400 dark:text-gray-500 text-center mt-1">{t.description}</p>
 
         <form className="w-full flex flex-col space-y-4 mt-12">
+          <label htmlFor="recovery-email" className="sr-only">
+            {t.email}
+          </label>
           <input
+            id="recovery-email"
             type="email"
             placeholder={t.email}
-            aria-label={t.email}
             className={`px-4 py-3 rounded-xl focus:outline-none placeholder-gray-500 transition shadow-inner
               ${theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-textwarm"}`}
           />

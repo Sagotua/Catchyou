@@ -109,12 +109,15 @@ export default function ChatConversationScreen() {
       </div>
 
       <div className="mt-4 flex gap-2">
+        <label htmlFor="chat-message" className="sr-only">
+          Message
+        </label>
         <input
+          id="chat-message"
           type="text"
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Напишіть повідомлення..."
-          aria-label="Message"
           className={`flex-1 px-4 py-2 rounded-lg focus:outline-none transition ${
             theme === "light" ? "bg-white text-black" : "bg-zinc-900 text-white"
           }`}
