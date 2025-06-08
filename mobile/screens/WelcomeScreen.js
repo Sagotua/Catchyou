@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import CustomButton from '../components/CustomButton';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   const { language, setLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
@@ -38,6 +39,9 @@ export default function WelcomeScreen() {
       <TouchableOpacity onPress={toggleTheme} className="mt-4">
         <Text className="text-blue-500">{t.toggle}</Text>
       </TouchableOpacity>
+      <View className="mt-6">
+        <CustomButton title="Get Started" onPress={() => navigation.navigate('Login')} />
+      </View>
     </View>
   );
 }

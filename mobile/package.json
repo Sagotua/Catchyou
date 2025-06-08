@@ -17,6 +17,7 @@
     "react-native-web": "^0.19.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.22",
+    "@react-navigation/bottom-tabs": "^6.5.12",
     "nativewind": "^4.1.23",
     "tailwindcss": "^4.1.8",
     "react-native-screens": "^4.11.1",
