@@ -1,8 +1,10 @@
 import { BsSun, BsMoon } from "react-icons/bs";
 import { useTheme } from "./ThemeContext";
+import { useLanguage } from "./LanguageContext";
 
-export default function LanguageThemeSwitcher({ language, setLanguage }) {
+export default function LanguageThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage } = useLanguage();
 
   return (
     <div className="flex justify-center items-center gap-4 text-sm opacity-80 pt-4 pb-2">
