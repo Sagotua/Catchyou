@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "./ThemeContext";
+import { users } from "./mockData";
 
 export default function ChatConversationScreen() {
   const { userId } = useParams();
@@ -9,11 +10,13 @@ export default function ChatConversationScreen() {
   const chatRef = useRef(null);
   const { theme } = useTheme();
 
-  const partner = {
-    id: userId,
-    name: "Анна",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Анна&backgroundColor=0f172a"
-  };
+  const id = parseInt(userId, 10);
+  const partner =
+    users.find((u) => u.id === id) || {
+      id,
+      name: "Користувач",
+      avatar: "",
+    };
 
   const currentUser = {
     name: "You",
@@ -21,14 +24,14 @@ export default function ChatConversationScreen() {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem(`chat-${userId}`);
+    const saved = localStorage.getItem(`chat-${id}`);
     if (saved) {
       setMessages(JSON.parse(saved));
     }
-  }, [userId]);
+  }, [id]);
 
   useEffect(() => {
-    localStorage.setItem(`chat-${userId}`, JSON.stringify(messages));
+    localStorage.setItem(`chat-${id}`, JSON.stringify(messages));
     scrollToBottom();
   }, [messages]);
 

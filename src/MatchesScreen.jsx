@@ -1,47 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
+import { users } from "./mockData";
 
 export default function MatchesScreen() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [conversations, setConversations] = useState([]);
   const { theme } = useTheme();
 
-  const newMatches = [
-    {
-      id: 1,
-      name: "Аліса",
-      photo: "https://placehold.co/120x180?text=Аліса"
-    },
-    {
-      id: 2,
-      name: "Даша",
-      photo: "https://placehold.co/120x180?text=Даша"
-    },
-    {
-      id: 3,
-      name: "Ірина",
-      photo: "https://placehold.co/120x180?text=Ірина"
-    }
-  ];
+  useEffect(() => {
+    const chats = users
+      .map((u) => {
+        const saved = localStorage.getItem(`chat-${u.id}`);
+        if (saved) {
+          const arr = JSON.parse(saved);
+          const last = arr[arr.length - 1];
+          if (last) {
+            return {
+              id: u.id,
+              name: u.name,
+              avatar: u.avatar,
+              text: last.text,
+              time: last.time,
+            };
+          }
+        }
+        return null;
+      })
+      .filter(Boolean);
+    setConversations(chats);
+  }, []);
 
-  const messages = [
-    {
-      id: 1,
-      name: "Анна",
-      text: "Привіт! Як справи?",
-      time: "10:45",
-      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Анна&backgroundColor=0f172a"
-    },
-    {
-      id: 2,
-      name: "Марія",
-      text: "Ти сьогодні вільний?",
-      time: "Вчора",
-      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Марія&backgroundColor=0f172a"
-    }
-  ];
+  const filteredConversations = conversations.filter((c) =>
+    c.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-  const filteredMessages = messages.filter(m =>
+  const matchedIds = conversations.map((c) => c.id);
+  const newMatches = users.filter((u) => !matchedIds.includes(u.id));
+  const filteredMatches = newMatches.filter((m) =>
     m.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -65,17 +61,20 @@ export default function MatchesScreen() {
       {/* Нові пари */}
       <div>
         <h2 className="text-lg font-bold mb-2">Нові пари</h2>
-        <div className="flex space-x-3 overflow-x-auto pb-1">
-          {newMatches.map(match => (
-            <div
+        <div className="flex space-x-4 overflow-x-auto pb-1">
+          {filteredMatches.map((match) => (
+            <Link
               key={match.id}
-              className={`min-w-[120px] flex-shrink-0 rounded-xl overflow-hidden ${
-                theme === "light" ? "bg-[#f0e4d7]" : "bg-zinc-800"
-              }`}
+              to={`/chat/${match.id}`}
+              className="flex flex-col items-center gap-1"
             >
-              <img src={match.photo} alt={match.name} className="w-full h-48 object-cover" />
-              <p className="text-center py-2">{match.name}</p>
-            </div>
+              <img
+                src={match.avatar}
+                alt={match.name}
+                className="w-16 h-16 rounded-full border-2 border-purple-500"
+              />
+              <span className="text-xs w-16 truncate text-center">{match.name}</span>
+            </Link>
           ))}
         </div>
       </div>
@@ -84,7 +83,7 @@ export default function MatchesScreen() {
       <div className="flex-1 overflow-y-auto">
         <h2 className="text-lg font-bold mb-2">Повідомлення</h2>
         <div className="space-y-3">
-          {filteredMessages.map(msg => (
+          {filteredConversations.map((msg) => (
             <Link to={`/chat/${msg.id}`} key={msg.id} className="block">
               <div
                 className={`flex items-center gap-3 p-2 rounded-lg transition ${
