@@ -61,7 +61,8 @@ export default function EditProfileScreen() {
     gender: "",
     orientation: "",
     hideAge: false,
-    hideDistance: false
+    hideDistance: false,
+    maxDistance: 30
   };
 
   const [profile, setProfile] = useState(defaultProfile);
@@ -619,6 +620,24 @@ export default function EditProfileScreen() {
               />
               <span className="text-sm">Не показувати відстань до мене</span>
             </label>
+
+            <div className="w-full mt-4">
+              <label className="block mb-1 text-sm">
+                Максимальна дистанція (км)
+              </label>
+              <input
+                type="range"
+                name="maxDistance"
+                min="1"
+                max="100"
+                value={profile.maxDistance}
+                onChange={handleChange}
+                className="w-full accent-purple-600"
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                {profile.maxDistance} км
+              </p>
+            </div>
           </div>
         </div>
 
@@ -672,6 +691,9 @@ export default function EditProfileScreen() {
               {profile.location && <p>Місто: {profile.location}</p>}
               {profile.relationshipGoal && <p>Ціль стосунків: {profile.relationshipGoal}</p>}
               {!profile.hideAge && profile.height && <p>Зріст: {profile.height} см</p>}
+              {!profile.hideDistance && profile.maxDistance && (
+                <p>Радіус пошуку: {profile.maxDistance} км</p>
+              )}
             </div>
 
             {profile.media.length > 0 && (

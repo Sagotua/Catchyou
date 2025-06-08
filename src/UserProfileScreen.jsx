@@ -67,6 +67,9 @@ export default function UserProfileScreen() {
         {profile.height && !profile.hideAge && (
           <p>Зріст: {profile.height} см</p>
         )}
+        {profile.maxDistance && !profile.hideDistance && (
+          <p>Радіус пошуку: {profile.maxDistance} км</p>
+        )}
       </div>
 
       {/* Інтереси */}
