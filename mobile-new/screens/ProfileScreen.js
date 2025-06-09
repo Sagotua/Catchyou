@@ -67,5 +67,5 @@ export default function ProfileScreen({ navigation }) {
       </TouchableOpacity>
     </ScrollView>
     </SafeAreaWrapper>
-  );
-}
+};
+

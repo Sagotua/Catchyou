@@ -227,3 +227,4 @@ export default function EditProfileScreen({ navigation }) {
     </ScrollView>
     </SafeAreaWrapper>
   );
+} 
