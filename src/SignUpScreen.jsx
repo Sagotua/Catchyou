@@ -71,10 +71,11 @@ export default function SignUpScreen() {
           />
           <button
             type="submit"
-            className={`py-3 rounded-xl font-semibold transition w-full ${theme === "light"
-              ? "bg-pastelPurple text-white hover:bg-purple-400"
-              : "bg-purple-600 text-textwarm hover:bg-purple-700"
-              }`}
+            className={`py-3 rounded-xl font-semibold transition w-full min-h-[44px] ${
+              theme === "light"
+                ? "bg-pastelPurple text-white hover:bg-purple-400"
+                : "bg-purple-600 text-textwarm hover:bg-purple-700"
+            }`}
           >
             {t.submit}
           </button>
@@ -87,7 +88,7 @@ export default function SignUpScreen() {
           {[FaApple, FaGoogle, FaFacebookF, FaInstagram].map((Icon, i) => (
             <button
               key={i}
-              className={`p-3 rounded-full transition
+              className={`p-3 rounded-full transition min-w-[44px] min-h-[44px] flex items-center justify-center
                 ${theme === "light"
                   ? "bg-[#f0e4d7] hover:bg-[#e2cdb9]"
                   : "bg-zinc-800 hover:bg-zinc-700"}`}

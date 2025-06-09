@@ -6,7 +6,7 @@ export default function BottomNavBar() {
   const { theme, toggleTheme } = useTheme();
 
   const navItemClass = ({ isActive }) =>
-    `flex flex-col items-center text-xs gap-1 transition duration-200 ${
+    `flex flex-col items-center text-xs gap-1 min-h-[44px] justify-center transition duration-200 ${
       isActive
         ? theme === "light"
           ? "text-pastelPurple scale-110"

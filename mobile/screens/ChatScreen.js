@@ -114,7 +114,7 @@ export default function ChatScreen({ route }) {
         />
         <TouchableOpacity
           onPress={handleSend}
-          className={`ml-2 px-4 py-2 rounded-lg ${
+          className={`ml-2 px-4 py-2 rounded-lg min-h-[44px] justify-center ${
             theme === 'light' ? 'bg-purple-500' : 'bg-purple-600'
           }`}
         >

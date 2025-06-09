@@ -9,7 +9,10 @@ export default function SettingsScreen() {
   const { logout } = useAuth();
   return (
     <SafeAreaWrapper className={`items-center justify-center ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
-      <TouchableOpacity onPress={logout} className="bg-blue-500 p-3 rounded">
+      <TouchableOpacity
+        onPress={logout}
+        className="bg-blue-500 p-3 rounded min-h-[44px] justify-center"
+      >
         <Text className="text-white">Logout</Text>
       </TouchableOpacity>
     </SafeAreaWrapper>

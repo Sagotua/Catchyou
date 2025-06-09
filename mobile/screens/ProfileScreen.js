@@ -23,7 +23,10 @@ export default function ProfileScreen({ navigation }) {
     return (
       <SafeAreaWrapper className={`items-center justify-center ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>\
         <Text className={`${theme === 'light' ? 'text-black' : 'text-white'}`}>Профіль не заповнено</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile')} className="mt-4 bg-blue-500 p-3 rounded">
+        <TouchableOpacity
+          onPress={() => navigation.navigate('EditProfile')}
+          className="mt-4 bg-blue-500 p-3 rounded min-h-[44px] justify-center"
+        >
           <Text className="text-white">Створити</Text>
         </TouchableOpacity>
       </SafeAreaWrapper>
@@ -56,7 +59,10 @@ export default function ProfileScreen({ navigation }) {
           ))}
         </View>
       )}
-      <TouchableOpacity onPress={() => navigation.navigate('EditProfile')} className="mt-6 bg-blue-500 p-3 rounded">
+      <TouchableOpacity
+        onPress={() => navigation.navigate('EditProfile')}
+        className="mt-6 bg-blue-500 p-3 rounded min-h-[44px] justify-center"
+      >
         <Text className="text-white text-center">Редагувати</Text>
       </TouchableOpacity>
     </ScrollView>
