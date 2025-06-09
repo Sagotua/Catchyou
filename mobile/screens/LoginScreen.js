@@ -66,17 +66,30 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setPassword}
       />
       <CustomButton title={t.submit} onPress={handleSubmit} />
-      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')} className="mt-2">
+      <TouchableOpacity
+        onPress={() => navigation.navigate('ForgotPassword')}
+        className="mt-2 min-h-[44px] justify-center"
+      >
         <Text className="text-blue-500 underline">{t.forgot}</Text>
       </TouchableOpacity>
       <View className="flex-row space-x-3 mt-6">
         {[ 'apple', 'google', 'facebook', 'instagram' ].map((icon, i) => (
-          <TouchableOpacity key={i} className="p-3 rounded-full bg-gray-200">
-            <FontAwesome name={icon} size={20} color={theme === 'light' ? '#000' : '#fff'} />
+          <TouchableOpacity
+            key={i}
+            className="p-3 rounded-full bg-gray-200 min-w-[44px] min-h-[44px] justify-center items-center"
+          >
+            <FontAwesome
+              name={icon}
+              size={20}
+              color={theme === 'light' ? '#000' : '#fff'}
+            />
           </TouchableOpacity>
         ))}
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('Register')} className="mt-4">
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Register')}
+        className="mt-4 min-h-[44px] justify-center"
+      >
         <Text className="text-sm text-gray-500 underline">{t.noAccount}</Text>
       </TouchableOpacity>
       <LanguageThemeSwitcher labels={{ ua: { ua: texts.ua.ua, en: texts.ua.en, toggle: texts.ua.toggle }, en: { ua: texts.en.ua, en: texts.en.en, toggle: texts.en.toggle } }} />

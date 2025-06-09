@@ -71,7 +71,10 @@ export default function RegisterScreen({ navigation }) {
         onChangeText={setConfirm}
       />
       <CustomButton title={t.submit} onPress={handleSubmit} />
-      <TouchableOpacity onPress={() => navigation.goBack()} className="mt-4">
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        className="mt-4 min-h-[44px] justify-center"
+      >
         <Text className="text-sm text-gray-500 underline">{t.haveAccount}</Text>
       </TouchableOpacity>
       <LanguageThemeSwitcher labels={{ ua: { ua: texts.ua.ua, en: texts.ua.en, toggle: texts.ua.toggle }, en: { ua: texts.en.ua, en: texts.en.en, toggle: texts.en.toggle } }} />

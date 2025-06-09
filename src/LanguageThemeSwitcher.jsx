@@ -10,21 +10,21 @@ export default function LanguageThemeSwitcher() {
     <div className="flex justify-center items-center gap-4 text-sm opacity-80 pt-4 pb-2">
       <button
         onClick={() => setLanguage("ua")}
-        className={`hover:underline ${language === "ua" ? "font-bold underline" : ""}`}
+        className={`hover:underline min-h-[44px] flex items-center justify-center ${language === "ua" ? "font-bold underline" : ""}`}
       >
         Українська
       </button>
       <span>•</span>
       <button
         onClick={() => setLanguage("en")}
-        className={`hover:underline ${language === "en" ? "font-bold underline" : ""}`}
+        className={`hover:underline min-h-[44px] flex items-center justify-center ${language === "en" ? "font-bold underline" : ""}`}
       >
         English
       </button>
       <span className="mx-1">|</span>
       <button
         onClick={toggleTheme}
-        className={`text-lg transition ${
+        className={`text-lg transition min-h-[44px] flex items-center justify-center ${
           theme === "light" ? "hover:text-pastelPurple" : "hover:text-purple-500"
         }`}
       >

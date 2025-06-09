@@ -12,14 +12,20 @@ export default function LanguageThemeSwitcher({ labels }) {
   return (
     <View className="items-center mt-6">
       <View className="flex-row space-x-4">
-        <TouchableOpacity onPress={() => setLanguage('ua')}>
+        <TouchableOpacity
+          onPress={() => setLanguage('ua')}
+          className="min-h-[44px] justify-center"
+        >
           <Text className={`underline ${language === 'ua' ? 'font-bold' : ''} ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.ua}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setLanguage('en')}>
+        <TouchableOpacity
+          onPress={() => setLanguage('en')}
+          className="min-h-[44px] justify-center"
+        >
           <Text className={`underline ${language === 'en' ? 'font-bold' : ''} ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.en}</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={toggleTheme} className="mt-2">
+      <TouchableOpacity onPress={toggleTheme} className="mt-2 min-h-[44px] justify-center">
         <Text className="text-blue-500">{t.toggle}</Text>
       </TouchableOpacity>
     </View>

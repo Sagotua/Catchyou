@@ -95,7 +95,10 @@ export default function EditProfileScreen({ navigation }) {
             onChangeText={(v) => updateField('tempPhoto', v)}
             className="border flex-1 mr-2 p-2 rounded"
           />
-          <TouchableOpacity onPress={addPhoto} className="bg-blue-500 p-3 rounded">
+          <TouchableOpacity
+            onPress={addPhoto}
+            className="bg-blue-500 p-3 rounded min-h-[44px] justify-center"
+          >
             <Text className="text-white">Add</Text>
           </TouchableOpacity>
         </View>
@@ -215,7 +218,10 @@ export default function EditProfileScreen({ navigation }) {
         <Switch value={profile.hideDistance} onValueChange={(v) => updateField('hideDistance', v)} />
       </View>
 
-      <TouchableOpacity onPress={saveProfile} className="bg-blue-500 p-3 rounded mb-10">
+      <TouchableOpacity
+        onPress={saveProfile}
+        className="bg-blue-500 p-3 rounded mb-10 min-h-[44px] justify-center"
+      >
         <Text className="text-white text-center">Зберегти</Text>
       </TouchableOpacity>
     </ScrollView>

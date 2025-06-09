@@ -124,7 +124,7 @@ export default function ChatConversationScreen() {
         />
         <button
           onClick={handleSend}
-          className={`px-4 py-2 rounded-lg transition ${
+          className={`px-4 py-2 rounded-lg transition min-h-[44px] ${
             theme === "light"
               ? "bg-pastelPurple text-white hover:bg-purple-400"
               : "bg-purple-600 hover:bg-purple-700"

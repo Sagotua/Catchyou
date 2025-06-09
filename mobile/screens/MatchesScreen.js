@@ -105,7 +105,7 @@ export default function MatchesScreen({ navigation }) {
             <TouchableOpacity
               key={msg.id}
               onPress={() => navigation.navigate('Chat', { userId: msg.id })}
-              className={`flex-row items-center p-2 rounded-lg mb-2 ${
+              className={`flex-row items-center p-2 rounded-lg mb-2 min-h-[44px] ${
                 theme === 'light' ? 'bg-gray-100' : 'bg-zinc-800'
               }`}
             >
