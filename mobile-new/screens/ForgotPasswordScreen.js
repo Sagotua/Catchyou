@@ -31,19 +31,28 @@ export default function ForgotPasswordScreen({ navigation }) {
   const t = texts[language];
 
   return (
-    <SafeAreaWrapper className={`items-center justify-center p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
-      <Text className={`text-xl mb-2 ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.title}</Text>
-      <Text className="text-sm text-gray-500 mb-4">{t.description}</Text>
-      <TextInput
-        className="w-full border p-2 mb-4 rounded"
-        placeholder={t.email}
-        value={email}
-        onChangeText={setEmail}
-      />
-      <CustomButton title={t.submit} onPress={() => navigation.goBack()} />
-      <TouchableOpacity onPress={() => navigation.goBack()} className="mt-4">
-        <Text className="text-sm text-gray-500 underline">{t.back}</Text>
-      </TouchableOpacity>
+    <SafeAreaWrapper
+      className={`flex-1 flex-col justify-between items-center w-full px-6 py-8 ${
+        theme === 'light' ? 'bg-warm text-black' : 'bg-darkbg text-textwarm'
+      }`}
+    >
+      <View className="w-full">
+        <Text className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</Text>
+        <Text className="text-sm text-gray-400 text-center mb-4">{t.description}</Text>
+        <TextInput
+          className={`px-4 py-3 rounded-xl mb-4 shadow-inner ${
+            theme === 'light' ? 'bg-white text-black' : 'bg-zinc-900 text-textwarm'
+          }`}
+          placeholder={t.email}
+          placeholderTextColor={theme === 'light' ? '#6b7280' : '#9ca3af'}
+          value={email}
+          onChangeText={setEmail}
+        />
+        <CustomButton title={t.submit} onPress={() => navigation.goBack()} />
+        <TouchableOpacity onPress={() => navigation.goBack()} className="pt-6 min-h-[44px] justify-center">
+          <Text className="text-sm text-gray-400 underline text-center">{t.back}</Text>
+        </TouchableOpacity>
+      </View>
       <LanguageThemeSwitcher labels={{ ua: { ua: texts.ua.ua, en: texts.ua.en, toggle: texts.ua.toggle }, en: { ua: texts.en.ua, en: texts.en.en, toggle: texts.en.toggle } }} />
     </SafeAreaWrapper>
   );
