@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { FaHome, FaComment, FaUser, FaMoon, FaSun } from "react-icons/fa";
+import { FaHome, FaComment, FaUser, FaMoon, FaSun, FaCog } from "react-icons/fa";
 import { useTheme } from "./ThemeContext";
 
 export default function BottomNavBar() {
   const { theme, toggleTheme } = useTheme();
 
   const navItemClass = ({ isActive }) =>
-    `flex flex-col items-center text-xs gap-1 transition duration-200 ${
+    `flex flex-col items-center text-xs gap-1 min-h-[44px] justify-center transition duration-200 ${
       isActive
         ? theme === "light"
           ? "text-pastelPurple scale-110"
@@ -27,6 +27,10 @@ export default function BottomNavBar() {
 
       <NavLink to="/profile" className={navItemClass} aria-label="Profile">
         <FaUser size={20} />
+      </NavLink>
+
+      <NavLink to="/settings" className={navItemClass} aria-label="Settings">
+        <FaCog size={20} />
       </NavLink>
 
       {/* Theme Toggle */}
