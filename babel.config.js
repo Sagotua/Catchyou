@@ -1,3 +1,6 @@
-module.exports = function(api) {
-  return require('./mobile/babel.config.js')(api);
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+  };
 };
