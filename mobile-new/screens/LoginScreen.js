@@ -49,29 +49,43 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <SafeAreaWrapper className={`items-center justify-center p-4 ${theme === 'light' ? 'bg-white' : 'bg-black'}`}>
-      <Text className={`text-xl mb-4 ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.title}</Text>
-      {error ? <Text className="text-red-500 mb-2">{error}</Text> : null}
-      <TextInput
-        className="w-full border p-2 mb-3 rounded"
-        placeholder={t.email}
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        className="w-full border p-2 mb-3 rounded"
-        placeholder={t.password}
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      <CustomButton title={t.submit} onPress={handleSubmit} />
-      <TouchableOpacity
-        onPress={() => navigation.navigate('ForgotPassword')}
-        className="mt-2 min-h-[44px] justify-center"
-      >
-        <Text className="text-blue-500 underline">{t.forgot}</Text>
-      </TouchableOpacity>
+    <SafeAreaWrapper
+      className={`flex-1 flex-col justify-between items-center w-full px-6 py-8 ${
+        theme === 'light' ? 'bg-warm text-black' : 'bg-darkbg text-textwarm'
+      }`}
+    >
+      <View className="flex flex-col w-full">
+        <Text className="text-2xl font-bold text-center mt-4 mb-6">{t.title}</Text>
+        {error ? <Text className="text-red-500 mb-2 text-center">{error}</Text> : null}
+        <TextInput
+          className={`px-4 py-3 rounded-xl mb-3 shadow-inner ${
+            theme === 'light' ? 'bg-white text-black' : 'bg-zinc-900 text-textwarm'
+          }`}
+          placeholder={t.email}
+          placeholderTextColor={theme === 'light' ? '#6b7280' : '#9ca3af'}
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          className={`px-4 py-3 rounded-xl mb-3 shadow-inner ${
+            theme === 'light' ? 'bg-white text-black' : 'bg-zinc-900 text-textwarm'
+          }`}
+          placeholder={t.password}
+          placeholderTextColor={theme === 'light' ? '#6b7280' : '#9ca3af'}
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+        <CustomButton title={t.submit} onPress={handleSubmit} />
+        <View className="text-center pt-6">
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ForgotPassword')}
+            className="min-h-[44px] justify-center"
+          >
+            <Text className="text-sm text-purple-500 underline">{t.forgot}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
       <View className="flex-row space-x-3 mt-6">
         {[ 'apple', 'google', 'facebook', 'instagram' ].map((icon, i) => (
           <TouchableOpacity
@@ -90,7 +104,7 @@ export default function LoginScreen({ navigation }) {
         onPress={() => navigation.navigate('Register')}
         className="mt-4 min-h-[44px] justify-center"
       >
-        <Text className="text-sm text-gray-500 underline">{t.noAccount}</Text>
+        <Text className="text-sm text-gray-400 underline">{t.noAccount}</Text>
       </TouchableOpacity>
       <LanguageThemeSwitcher labels={{ ua: { ua: texts.ua.ua, en: texts.ua.en, toggle: texts.ua.toggle }, en: { ua: texts.en.ua, en: texts.en.en, toggle: texts.en.toggle } }} />
     </SafeAreaWrapper>
